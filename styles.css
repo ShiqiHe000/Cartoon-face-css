@@ -1,0 +1,233 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --eye-width: 65px;
+    --eye-lid-color: hsl(19, 46%, 68%);
+    --hair-color: hsl(27, 33%, 28%);
+    --hair-two-sizes-width: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: hsl(200, 50%, 12%);
+}
+
+.head {
+    --head-height: 340px;
+    --head-width: 300px;
+    --skin-color: hsl(19, 76%, 88%);
+
+    background: var(--skin-color);
+    width: var(--head-width);
+    height: var(--head-height);
+    border-radius: 30% 30% 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.eyes {
+    /* --eye-width: 65px; */
+    --eye-height: 40px;
+
+    width: calc(var(--eye-width) * 3);
+    height: var(--eye-height);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    /* top: calc(var(--head-width) * 0.38); */
+}
+
+/* eyes */
+.eye {
+
+    background-color: white;
+    height: var(--eye-height);
+    width: var(--eye-width);
+    border-radius: 100%;
+    border-top: 3px solid var(--eye-lid-color);
+    border-bottom: 1px solid var(--eye-lid-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative; 
+}
+
+
+
+.eye-left {
+    margin-right: var(--eye-width);
+}
+
+/* eyeballs */
+.eye::before {
+    --eye-color: hsl(78, 10%, 42%);
+    --eyeball-size: 41px;
+
+    content: '';
+    position: absolute;
+    width: var(--eyeball-size);
+    height: var(--eyeball-size);
+    background-color: var(--eye-color);
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}   
+
+ /* pupils */
+.eye::after {
+    --pupil-color: #333;
+    --pupil-size: 15px;
+
+    content: '';
+    position: absolute;
+    width: var(--pupil-size);
+    height: var(--pupil-size);
+    background-color: var(--pupil-color);
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-bottom: 7px;
+}
+
+.brows {
+    --brow-width: var(--eye-width);
+    --brow-height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+}
+
+.brow {
+
+    width: var(--brow-width);
+    height: var(--brow-height);
+    border-radius: 100%;
+    border-top: 10px solid var(--hair-color);
+    margin-bottom: 35px;
+}
+
+.brow-left {
+    margin-right: var(--eye-width);
+}
+
+.nose {
+    height:30px;
+    width: 40px;
+    border-radius: 0 0 50% 50%;
+    border: 3px solid var(--eye-lid-color);
+    border-top: none;
+    position: absolute;
+    margin-top: 110px;
+}
+
+.mouth {
+    position: absolute;
+    width: 100px;
+    height: 35px;
+    background-color: white;
+    margin-top: 210px;
+    border: 4px solid var(--eye-lid-color);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 2px;
+    border-radius: 20% 20% 45% 45%;
+}
+
+.ears {
+    --ear-height: 60px;
+    --ear-width: 340px;
+    --ear-color: hsl(19, 76%, 85%);
+
+    position: absolute;
+    width: var(--ear-width);
+    height: var(--ear-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: -1;
+}
+
+.ear {
+    width: 40px;
+    height: var(--ear-height);
+    background-color: var(--ear-color);
+    /* border: 1px solid red; */
+    border-radius: 40% 40% 50% 50%;
+    border: 2px solid var(--eye-lid-color);
+}
+
+.hair {
+    --hair-width: var(--head-width);
+    --hair-height: 125px;
+    --hair-color: hsl(27, 33%, 28%);
+
+    position: absolute;
+    width: var(--hair-width);
+    height: var(--hair-height);
+    background-color: var(--hair-color);
+    margin-bottom: 300px;
+    border-radius: 50% 100% 0 0 ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.hair::before, .hair::after {
+    --hair-two-sizes-height: 80px;
+
+    content: "";
+    background-color: var(--hair-color);
+    width: var(--hair-two-sizes-width);
+    height: var(--hair-two-sizes-height);
+    position: relative;
+    top: var(--hair-two-sizes-height);
+    
+}
+
+.hair-corner {
+    position: absolute;
+    height: 100px;
+    width: var(--head-width);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+
+
+}
+
+.hair-corner::before, .hair-corner::after {
+    --hair-corner-height: 10px;
+
+    content: "";
+    width: 0;
+    height: 0;
+    position: relative;
+    border: 15px solid transparent;
+    top: calc(var(--hair-corner-height) * 2);
+}
+
+.hair-corner::before {
+    left: var(--hair-two-sizes-width);
+    border-left-color: var(--hair-color);
+    border-top-color: var(--hair-color);
+}
+
+.hair-corner::after {
+    left: calc(-1 * var(--hair-two-sizes-width));
+    border-top-color: var(--hair-color);
+    border-right-color: var(--hair-color);
+}
